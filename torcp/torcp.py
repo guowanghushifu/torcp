@@ -519,8 +519,8 @@ class Torcp:
         # filename, file_ext = os.path.splitext(mediaSrc)
         ch1 = ' - '
         tmdbTail = ''
-        if (nameParser and nameParser.tmdbid > 0 and self.ARGS.filename_emby_bracket and self.ARGS.emby_bracket):
-            tmdbTail = ' [tmdbid=' + str(nameParser.tmdbid) + ']'
+        if (nameParser and nameParser.tmdbid > 0 and self.ARGS.plex_bracket):
+            tmdbTail = ' {tmdb-' + str(nameParser.tmdbid) + '}'
         medianame = movieName + ((' (' + year + ')' ) if year else '') + tmdbTail + ch1 + originName
         return medianame.strip()
 
@@ -530,8 +530,8 @@ class Torcp:
         ch1 = ' - ' if (resolution or group) else ''
         ch2 = '_' if (resolution and group) else ''
         tmdbTail = ''
-        if (nameParser and nameParser.tmdbid > 0 and self.ARGS.filename_emby_bracket and self.ARGS.emby_bracket):
-            tmdbTail = ' [tmdbid=' + str(nameParser.tmdbid) + ']'
+        if (nameParser and nameParser.tmdbid > 0 and self.ARGS.plex_bracket):
+            tmdbTail = ' {tmdb-' + str(nameParser.tmdbid) + '}'
         medianame = movieName + ((' (' + year + ')' ) if year else '') + tmdbTail + ch1 + (
             resolution if resolution else '') + ch2 + (group
                                                     if group else '') + file_ext
